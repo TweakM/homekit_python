@@ -13,22 +13,39 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-import setuptools
+import os.path
+from setuptools import find_packages, setup
 
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(
+def read(rel_path: str) -> str:
+    here = os.path.abspath(os.path.dirname(__file__))
+    # intentionally *not* adding an encoding option to open
+    with open(os.path.join(here, rel_path)) as fp:
+        return fp.read()
+
+
+def get_version(rel_path: str) -> str:
+    for line in read(rel_path).splitlines():
+        if line.startswith("__version__"):
+            # __version__ = "0.9"
+            delim = '"' if '"' in line else "'"
+            return line.split(delim)[1]
+    raise RuntimeError("Unable to find version string.")
+
+
+setup(
     name='homekit',
-    packages=setuptools.find_packages(exclude=['tests']),
-    version='0.18.0',
+    packages=find_packages(exclude=['tests']),
+    version=get_version("homekit/version.py"),
     description='Python code to interface HomeKit Accessories and Controllers',
     author='Joachim Lusiardi',
     author_email='pypi@lusiardi.de',
-    url='https://github.com/jlusiardi/homekit_python',
-    download_url='https://github.com/jlusiardi/homekit_python/archive/0.18.0.tar.gz',
+    url='https://github.com/TweakM/homekit_python',
+# Commented out as download_url is no longer used due to regular misuse and issues
+#    download_url='https://github.com/jlusiardi/homekit_python/archive/0.18.0.tar.gz',
     keywords=['HomeKit'],
     classifiers=[
         'License :: OSI Approved :: Apache Software License',
