@@ -31,6 +31,7 @@ from homekit.exceptions import BluetoothAdapterError, AccessoryDisconnectedError
     MaxPeersError, MaxTriesError, ProtocolError, RequestRejected, UnavailableError, UnknownError, UnpairedError
 
 from homekit.tools import IP_TRANSPORT_SUPPORTED
+from .version import __version__
 
 if IP_TRANSPORT_SUPPORTED:
     # TODO: change import and let it be imported from its specific file
