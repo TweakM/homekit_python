@@ -43,7 +43,7 @@ setup(
     description='Python code to interface HomeKit Accessories and Controllers',
     author='Joachim Lusiardi',
     author_email='pypi@lusiardi.de',
-    url='https://github.com/jlusiardi/homekit_python',
+    url='https://github.com/TweakM/homekit_python',
 # Commented out as download_url is no longer used due to regular misuse and issues
 #    download_url='https://github.com/jlusiardi/homekit_python/archive/0.18.0.tar.gz',
     keywords=['HomeKit'],
